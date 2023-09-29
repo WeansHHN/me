@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Giới thiệu bản thân</title>
+    <meta charset="UTF-8">
+    <title>Kamisama Ni Natta Hi Fan Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<!-- Thư viện jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Thư viện Owl Carousel -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+
+    <style>
+        /* CSS cho menu popup */
+        .popup-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-menu a {
+            color: #fff;
+            font-size: 24px;
+            margin: 10px;
+            text-decoration: none;
+        }
+
+        /* CSS cho nút ba gạch */
+        .menu-icon {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            cursor: pointer;
+            z-index: 1;
+            font-size: 17px;
+            position: fixed;
+            background-color: #6bc4ffb4;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+
+
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            background-image: url('https://images5.alphacoders.com/131/1311994.jpeg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        
+        .about, .contact {
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-title, .contact-title {
+            font-size: 1.5rem;
+            margin-top: 0;
+            color: #333;
+        }
+
+        .about-description {
+            font-size: 1.2rem;
+        }
+
+        .contact-info {
+            font-size: 1.2rem;
+            color: #007bff;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Thêm các quy tắc CSS cho màn hình lớn */
+        @media (min-width: 768px) {
+            .header-title {
+                font-size: 3rem;
+            }
+
+            .about, .contact {
+                margin: 40px;
+            }
+
+            .about-title, .contact-title {
+                font-size: 2rem;
+            }
+
+            .about-description {
+                font-size: 1.5rem;
+            }
+
+            .contact-info {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* CSS cho nút đóng */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* CSS cho menu popup */
+.popup-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 2;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.popup-links {
+    display: flex;
+    flex-direction: column; /* Hiển thị các nút theo chiều dọc */
+    justify-content: center; /* Căn giữa các nút theo chiều ngang */
+    align-items: center; /* Căn giữa các nút theo chiều dọc */
+    height: 100%;
+    margin-right: 20px; /* Thêm khoảng cách bên phải */
+}
+
+.popup-links a {
+    color: #fff;
+    font-size: 20px;
+    margin: 10px 0; /* Điều này tạo khoảng cách giữa các nút */
+    text-decoration: none;
+}
+
+
+
+/* CSS cho nút đóng */
+.close-button {
+    font-size: 24px;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* CSS */
+.header-title {
+    font-size: 2rem;
+    padding: 20px;
+    position: relative;
+    color: #006eff;
+}
+
+.typing-text {
+    color: #4eff92;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid transparent; /* Tạo đường viền dọc */
+    animation: typing 4s steps(20) forwards; /* Sử dụng animation */
+}
+
+@keyframes typing {
+    0% {
+        width: 0; /* Bắt đầu từ độ rộng 0 */
+        border-right-color: transparent; /* Đường viền màu trong suốt */
+    }
+    95% {
+        width: 100%; /* Kết thúc ở độ rộng 100% */
+        border-right-color: #fff; /* Đường viền màu trắng */
+    }
+    100% {
+        width: 100%; /* Giữ nguyên kích thước 100% */
+        border-right-color: #fff; /* Đường viền màu trắng */
+    }
+}
+
+.icon-container {
+    margin-top: 20px;
+  }
+
+  .icon-container a {
+    display: inline-block;
+    margin: 0 10px;
+    color: #070707;
+    text-decoration: none;
+    font-size: 24px;
+    transition: color 0.3s ease;
+  }
+
+  .icon-container a:hover {
+    color: #66a0f89a;
+  }
+    </style>
+</head>
+<body>
+    <div class="menu-icon" style="color: #f5f5f5;" onclick="toggleMenu()">&#9776;</div>
+
+<div class="popup-menu" id="popupMenu">
+    <div class="popup-header">
+        <a href="#" class="close-button" onclick="closeMenu()">&#10006;</a>
+    </div>
+    <div class="popup-links">
+        <a href="#" onclick="scrollToSection('header')">Trang chủ.</a>
+        <a href="#" onclick="scrollToSection('about')">Giới thiệu về bản thân.</a>
+        <a href="#" onclick="scrollToSection('comment')">Ae cấp 3 nói về tính cách.</a>
+        <a href="#" onclick="scrollToSection('chamngon')">Châm ngôn sống.</a>
+        <a href="#" onclick="scrollToSection('contact')">Liên hệ.</a>
+    </div>
+</div>
+
+</div>
+
+
+<!-- HTML -->
+<header id="header" class="header">
+    <div class="header-content">
+        <h1 class="header-title">Xin chào, tôi là</h1>
+        <h1><span class="typing-text">Hải Ninh</span></h1>
+    </div>
+</header>
+
+
+    <section id="about" class="about">
+        <div class="about-content">
+            <h2 class="about-title">Giới thiệu về bản thân</h2><br>
+            <p class="about-description" style="margin: 5px;">
+<b>Tên là:</b> Hoàng Ngọc Hải Ninh<br><br>
+<b>Tên khác:</b> HHNiOS, Weans<br><br>
+
+<b>Giải thích qua về tên khác của mình:</b> HHNiOS là tên mà mn gọi mình trên mạng. Còn WEANS là lấy từ tên của 1 ca sĩ nhạc rap WEAN, là tác giả của bài hát mà mình từng rất yêu thích, bài hát ấy đã giúp tâm lí mình vượt qua giai đoạn tiêu cực của bản thân về áp lực thi cử, áp lực từ gia đình,... thế nên mình lấy tên của ca sĩ ấy và thêm "s" phía sau vì trong tiếng anh thêm "s" phía sau nghĩa là số nhiều. Anh ấy đã là người tạo cảm hứng và mãi mãi là 1 trong số lí do để mình tiếp tục với đam mê, niềm yêu đối với cuộc sống và qua bài nhạc của anh ấy đã cho mình biết được mục tiêu của mình là gì. Trên hết mình cảm thấy yêu bản thân và yêu cuộc sống đầy khắc nhiệt này nhiều hơn.<br><br>
+
+<b>Sở thích:</b> thích xem Anime, thích học 1 số môn học, nghiện nghe nhạc, thích mua mô hình, thích code dạo, check mã lỗi và lỗ hổng bảo mật của game,...<br><br>
+
+<b>P/s: YÊU THÍCH SỰ TỰ DO CỦA BẢN THÂN VÀ MUỐN ĐƯỢC HOÀN THÀNH ƯỚC MƠ CỦA BẢN THÂN.</b><br><br>
+
+<b>Không thích:</b> không thích các món ăn liên quan đến gia cầm (gà, vịt, ngan, ngỗng,...), không thích tiktok và ngắm gái,...<br><br>
+
+<b>P/s: GHÉT VIỆC PHẢI TRỞ THÀNH NGƯỜI KHÁC, KHÔNG MUỐN ĐỐI MẶT VỚI NHIỀU VẤN ĐỀ.</b><br><br>
+
+<b>Nỗi sợ:</b> sợ ánh nhìn, sợ chỗ đông người, sợ đám đông, sợ sự nổi bật, sợ đại dương,...<br><br>
+<b>Yêu quý vầ quý trọng tất cả các thầy, các cô:33<br><br>
+YÊU THÍCH ĐẤT NƯỚC NHẬT BẢN VÀ TRONG TƯƠNG LAI TÔI SẼ ĐẾN ĐẤY.</b><br>
+</p>
+</div>
+</section>
+
+<section id="comment" class="about">
+    <div class="about-content">
+<h2 class="about-title">Ae cấp 3 nói về tính cách:)))</h2><br>
+            <p class="about-description" style="margin: 5px;">
+<b>Hải Hiếu Official:</b><br> "mày thay đổi theo thời tiết"<br>
+
+"tính mày khác vs tính bọn t"<br>
+
+"cứ waifu rủ đi chs ko đi"<br>
+
+"mày con trai ko háu gái lắm đk"<br>
+
+"mày cứ con gái kiểu dell j đấy"<br>
+
+"lúc nghiêm túc thì dell nghiêm túc"<br>
+
+"ng khác nói thì ko nắng nghe cứ cãi"<br>
+
+"xong nói lớn tiếng lắm lúc kiểu ko muốn nói nói ra như kiểu chửi nhau"<br>
+"còn nhiều cái nx nhưng dài lắm ko muốn nói"
+
+"rút kinh nghiệm nhá"<br>
+
+"nói thì cứ nói thế chứ vẫn chs vs nhau mà"<br><br>
+
+<b>Hà Slime:</b><br> "vô duyên" :((((<br>
+</p>
+<br>
+            </p>
+        </div>
+    </section>
+
+    <section id="chamngon" class="about">
+        <div class="about-content">
+            <h2 class="about-title">Châm ngôn sống</h2>
+            <p class="about-description" style="margin: 5px;">
+        <div class="owl-carousel owl-theme">
+            <div class="item">Liệu chúng ta đang sống,<br> hay chỉ là đang tồn tại.<br><br><b>-HTA-</b></div>
+            <div class="item">Ở nơi vắng vẻ,<br> là nơi chúng ta ít cô đơn nhất<br><br><b>-Yosuga no Sora-</b></div>
+            <div class="item">
+                Nếu tự s.á.t là cách duy nhất để giải quyết mọi thứ.<br>
+                Thì sinh mạng là thứ rẻ rúng nhất trên cõi đời này.<br><br><b>-HTA-</b></div>
+        </div>        
+            </p>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="contact-content">
+            <h2 class="contact-title">Liên hệ</h2>
+            <div class="icon-container">
+                <a href="https://www.facebook.com/weansios"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.youtube.com/@hhnios5013"><i class="fab fa-youtube"></i></a>
+                <a href="https://github.com/WeansHHN"><i class="fab fa-github"></i></a>
+                <a href="https://twitter.com/@hhnios_weans"><i class="fab fa-twitter"></i></a>
+                <a href="https://t.me/Weans_HHN"><i class="fab fa-telegram"></i></a>
+              </div>
+        </div>
+    </section>
+
+    <script>
+        $(document).ready(function () {
+            $(".owl-carousel").owlCarousel({
+                items: 1, // Hiển thị một slide tại một thời điểm
+                autoplay: true, // Tự động chuyển slide
+                autoplayTimeout: 10000, // Thời gian hiển thị mỗi slide (3 giây)
+                loop: true, // Lặp lại carousel
+                animateOut: 'fadeOut', // Hiệu ứng chuyển slide ra
+                animateIn: 'fadeIn', // Hiệu ứng chuyển slide vào
+            });
+        });
+    </script>
+      
+    
+    <script>
+        // JavaScript để hiển thị và ẩn menu popup
+        function toggleMenu() {
+            var popupMenu = document.getElementById("popupMenu");
+            if (popupMenu.style.display === "block") {
+                popupMenu.style.display = "none";
+            } else {
+                popupMenu.style.display = "block";
+            }
+        }
+
+        // JavaScript để cuộn đến các phần của trang web
+        function scrollToSection(sectionId) {
+            var section = document.getElementById(sectionId);
+            if (section) {
+                window.scrollTo({
+                    top: section.offsetTop,
+                    behavior: "smooth"
+                });
+                toggleMenu(); // Ẩn menu sau khi chuyển đến phần
+            }
+        }
+
+        // JavaScript để đóng menu popup
+function closeMenu() {
+    var popupMenu = document.getElementById("popupMenu");
+    popupMenu.style.display = "none";
+}
+
+    </script>
+</body>
+</html>
