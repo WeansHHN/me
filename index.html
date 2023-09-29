@@ -263,6 +263,20 @@
     color: #000000bb;
     line-height: 1.5;
   }
+
+  .tab-button {
+            cursor: pointer;
+            background-color: #7a7a7a;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            outline: none;
+            border-radius: 4px;
+        }
+
+        .tab-content {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -276,6 +290,7 @@
         <a href="#" onclick="scrollToSection('header')">Trang chủ.</a>
         <a href="#" onclick="scrollToSection('about')">Giới thiệu về bản thân.</a>
         <a href="#" onclick="scrollToSection('comment')">Ae cấp 3 nói về tính cách.</a>
+        <a href="#" onclick="scrollToSection('playlist')">Danh sách nhạc.</a>
         <a href="#" onclick="scrollToSection('chamngon')">Châm ngôn sống.</a>
         <a href="#" onclick="scrollToSection('contact')">Liên hệ.</a>
     </div>
@@ -359,6 +374,26 @@ YÊU THÍCH ĐẤT NƯỚC NHẬT BẢN VÀ TRONG TƯƠNG LAI TÔI SẼ ĐẾN �
         </div>
     </section>
 
+    <section id="playlist" class="about">
+        <div class="about-content">
+    <h2 class="about-title">Danh sách nhạc</h2>
+                <p class="about-description" style="margin: 5px;">
+                    <button class="tab-button" onclick="openTab('tab1')">Nhạc 🇻🇳</button>
+    <button class="tab-button" onclick="openTab('tab2')">Nhạc 🇯🇵</button>
+
+    <div id="tab1" class="tab-content">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/videoseries?si=LSysjt858ZN_Vu7Y&amp;list=PL_i5wMTMXzT4hs81ONkzDDKG0DnvLfoLE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+
+    <div id="tab2" class="tab-content">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/videoseries?si=spDh8UgxjQ7kCcWU&amp;list=PL_i5wMTMXzT4bRnL0dLz65hZV8UJ9cBJ8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+
+                </p>
+            </div>
+        </section>
+
+
     <section id="chamngon" class="about">
         <div class="about-content">
             <h2 class="about-title">Châm ngôn sống</h2>
@@ -409,6 +444,24 @@ YÊU THÍCH ĐẤT NƯỚC NHẬT BẢN VÀ TRONG TƯƠNG LAI TÔI SẼ ĐẾN �
       
     
     <script>
+        // Tự động mở Tab 1 khi trang web được tải
+        window.onload = function() {
+            openTab('tab1');
+        };
+
+        function openTab(tabId) {
+            // Ẩn tất cả các tab content
+            var tabContents = document.getElementsByClassName("tab-content");
+            for (var i = 0; i < tabContents.length; i++) {
+                tabContents[i].style.display = "none";
+            }
+
+            // Hiển thị tab content tương ứng với tabId
+            var tabContent = document.getElementById(tabId);
+            if (tabContent) {
+                tabContent.style.display = "block";
+            }
+        }
         // JavaScript để hiển thị và ẩn menu popup
         function toggleMenu() {
             var popupMenu = document.getElementById("popupMenu");
