@@ -39,23 +39,28 @@
 
         /* CSS cho nút ba gạch */
         .menu-icon {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            cursor: pointer;
-            z-index: 1;
-            font-size: 17px;
-            position: fixed;
-            background-color: #6bc4ffb4;
-            color: #fff;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 4px;
-            cursor: pointer;
-            opacity: 0.8;
-            transition: opacity 0.3s ease;
-            z-index: 1;
-        }
+    background-image: url('https://github.com/WeansHHN/me/blob/main/mikunakano.png?raw=true');
+    background-size: 70px; /* Sử dụng cover để phù hợp với kích thước của phông nền */
+    background-repeat: no-repeat;
+    background-position: center;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+    z-index: 1;
+    font-size: 15px;
+    position: fixed;
+    background-color: #6bc4ffb4;
+    color: #ffffff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
 
 
 
@@ -277,10 +282,18 @@
         .tab-content {
             display: none;
         }
+
+        .logo {
+            position: absolute;
+            top: -2px;
+            right: 20px;
+            width: 80px; /* Điều chỉnh kích thước theo nhu cầu của bạn */
+            height: auto; /* Để giữ tỷ lệ khung hình */
+        }
     </style>
 </head>
 <body>
-    <div class="menu-icon" style="color: #f5f5f5;" onclick="toggleMenu()">&#9776;</div>
+    <div class="menu-icon" style="color: #ffffffc9;" onclick="toggleMenu()">&#9776;</div>
 
 <div class="popup-menu" id="popupMenu">
     <div class="popup-header">
@@ -298,8 +311,10 @@
 
 </div>
 
+<a href="https://hhnios.site">
+    <img href="https://hhnios.site" src="https://github.com/WeansHHN/me/blob/main/7F0CA0EC-2686-4ED5-BB7A-DA1E588065DA.png?raw=true" alt="Logo" class="logo">
+</a>
 
-<!-- HTML -->
 <header id="header" class="header">
     <div class="header-content">
         <h2 class=""></h2>
