@@ -291,8 +291,89 @@
             height: auto; /* Để giữ tỷ lệ khung hình */
         }
     </style>
+
+
+<style>
+    :root {
+    --background-light: #f5f5f5; /* Màu nền chế độ sáng */
+    --text-light: #000; /* Màu chữ chế độ sáng */
+    --background-dark: #333; /* Màu nền chế độ tối */
+    --text-dark: #fff; /* Màu chữ chế độ tối */
+}
+
+    /* CSS cho chế độ sáng */
+    body.light-mode {
+        background-color: #f5f5f5;
+        color: #000;
+    }
+
+    /* CSS cho chế độ tối */
+    body.dark-mode {
+        background-color: #333;
+        color: #000000;
+    }
+
+    .header {
+        /* Định nghĩa background image trong chế độ sáng */
+        background-image: url('https://images5.alphacoders.com/131/1311994.jpeg');
+        /* Các thuộc tính CSS khác cho phần header */
+    }
+    
+    .mode-toggle {
+    position: fixed;
+    top: 90%;
+    right: 20px;
+    z-index: 1;
+    font-size: 24px;
+    cursor: pointer;
+    background-color: #333;
+    color: #fff;
+    border-radius: 50%;
+    width: 40px; /* Đảm bảo kích thước chiều rộng và chiều cao bằng nhau */
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.mode-toggle:hover {
+    background-color: #666;
+}
+
+
+.mode-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px; /* Điều chỉnh kích thước chiều rộng */
+    height: 40px; /* Điều chỉnh kích thước chiều cao */
+    border-radius: 50%; /* Biểu tượng tròn */
+    background-color: var(--background-light); /* Màu nền chế độ sáng */
+    color: var(--text-light); /* Màu biểu tượng chế độ sáng */
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Hiệu ứng màu nền và màu chữ */
+}
+
+.mode-toggle:hover {
+    background-color: var(--background-dark); /* Màu nền khi di chuột qua chế độ tối */
+    color: var(--text-dark); /* Màu biểu tượng khi di chuột qua chế độ tối */
+}
+
+.mode-toggle i {
+    font-size: 20px; /* Điều chỉnh kích thước của biểu tượng */
+}
+    
+
+
+
+</style>
 </head>
-<body>
+<body class="light-mode">
+    <div class="mode-toggle" onclick="toggleMode()">
+        <i class="fas fa-adjust"></i>
+    </div>
+    
     <div class="menu-icon" style="color: #ffffffc9;" onclick="toggleMenu()">&#9776;</div>
 
 <div class="popup-menu" id="popupMenu">
@@ -511,6 +592,27 @@ YÊU THÍCH ĐẤT NƯỚC NHẬT BẢN VÀ TRONG TƯƠNG LAI TÔI SẼ ĐẾN �
 function closeMenu() {
     var popupMenu = document.getElementById("popupMenu");
     popupMenu.style.display = "none";
+}
+
+function toggleMode() {
+    const body = document.body;
+    const modeToggle = document.querySelector('.mode-toggle');
+    const currentMode = body.classList.contains('light-mode') ? 'light' : 'dark';
+    const header = document.querySelector('.header');
+
+    if (currentMode === 'light') {
+        body.classList.remove('light-mode');
+        body.classList.add('dark-mode');
+        header.style.backgroundImage = "url('https://github.com/WeansHHN/me/blob/main/wallpaperflare.com_wallpaper%20(2).jpg?raw=true')";
+        modeToggle.style.backgroundColor = 'var(--background-dark)';
+        modeToggle.style.color = 'var(--text-dark)';
+    } else {
+        body.classList.remove('dark-mode');
+        body.classList.add('light-mode');
+        header.style.backgroundImage = "url('https://images5.alphacoders.com/131/1311994.jpeg')";
+        modeToggle.style.backgroundColor = 'var(--background-light)';
+        modeToggle.style.color = 'var(--text-light)';
+    }
 }
 
     </script>
