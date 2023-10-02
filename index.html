@@ -1,114 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Giới thiệu bản thân</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giới thiệu bản thân</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-<!-- Thư viện jQuery -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-<!-- Thư viện Owl Carousel -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <style>
-        /* CSS cho menu popup */
-        .popup-menu {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            z-index: 1;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .popup-menu a {
-            color: #fff;
-            font-size: 24px;
-            margin: 10px;
-            text-decoration: none;
-        }
-
-        /* CSS cho nút ba gạch */
-        .menu-icon {
-    background-image: url('https://github.com/WeansHHN/me/blob/main/mikunakano.png?raw=true');
-    background-size: 70px; /* Sử dụng cover để phù hợp với kích thước của phông nền */
-    background-repeat: no-repeat;
-    background-position: center;
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    cursor: pointer;
-    z-index: 1;
-    font-size: 15px;
-    position: fixed;
-    background-color: #6bc4ffb4;
-    color: #ffffff;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    opacity: 0.8;
-    transition: opacity 0.3s ease;
-    z-index: 1;
-}
-
-
-
-
-
+        /* Global Styles */
         body {
             font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
+            background-color: #ffffff;
             margin: 0;
             padding: 0;
-        }
-
-        .header {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            background-image: url('https://images5.alphacoders.com/131/1311994.jpeg');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        
-        .about, .contact {
-            background-color: #fff;
-            padding: 20px;
-            margin: 20px;
-            border-radius: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .about-title, .contact-title {
-            font-size: 1.5rem;
-            margin-top: 0;
             color: #333;
-        }
-
-        .about-description {
-            font-size: 1.2rem;
-        }
-
-        .contact-info {
-            font-size: 1.2rem;
-            color: #007bff;
         }
 
         a {
@@ -120,156 +28,166 @@
             text-decoration: underline;
         }
 
-        /* Thêm các quy tắc CSS cho màn hình lớn */
-        @media (min-width: 768px) {
-            .header-title {
-                font-size: 3rem;
-            }
+        /* Header Styles */
+        .header {
+            background-image: url('https://images5.alphacoders.com/131/1311994.jpeg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
 
-            .about, .contact {
-                margin: 40px;
-            }
+        .header-title {
+            font-size: 3rem;
+        }
 
-            .about-title, .contact-title {
-                font-size: 2rem;
-            }
+        .typing-text {
+            color: #000;
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 2px solid transparent;
+            animation: typing 4s steps(25) forwards;
+        }
 
-            .about-description {
-                font-size: 1.5rem;
+        @keyframes typing {
+            0% {
+                width: 0;
+                border-right-color: transparent;
             }
-
-            .contact-info {
-                font-size: 1.5rem;
+            95% {
+                width: 100%;
+                border-right-color: #fff;
+            }
+            100% {
+                width: 100%;
+                border-right-color: #fff;
             }
         }
 
-        /* CSS cho nút đóng */
-.close-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 24px;
-    color: #fff;
-    text-decoration: none;
-    cursor: pointer;
-}
+        /* Menu Icon Styles */
+        .menu-icon {
+            background-image: url('https://github.com/WeansHHN/me/blob/main/mikunakano.png?raw=true');
+            background-size: 70px;
+            background-repeat: no-repeat;
+            background-position: center;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            cursor: pointer;
+            font-size: 15px;
+            background-color: #6bc4ffb4;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
 
+        /* Popup Menu Styles */
+        .popup-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 2;
+            flex-direction: column;
+            align-items: flex-end;
+        }
 
-/* CSS cho menu popup */
-.popup-menu {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    z-index: 2;
-    flex-direction: column;
-    align-items: flex-end;
-}
+        .popup-header {
+            position: relative;
+        }
 
-.popup-links {
-    display: flex;
-    flex-direction: column; /* Hiển thị các nút theo chiều dọc */
-    justify-content: center; /* Căn giữa các nút theo chiều ngang */
-    align-items: center; /* Căn giữa các nút theo chiều dọc */
-    height: 100%;
-    margin-right: 20px; /* Thêm khoảng cách bên phải */
-}
+        .close-button {
+            font-size: 24px;
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
 
-.popup-links a {
-    color: #fff;
-    font-size: 17px;
-    margin: 10px 0; /* Điều này tạo khoảng cách giữa các nút */
-    text-decoration: none;
-}
+        .popup-links {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            margin-right: 20px;
+        }
 
+        .popup-links a {
+            color: #fff;
+            font-size: 17px;
+            margin: 10px 0;
+            text-decoration: none;
+        }
 
+        /* About Section Styles */
+        .about {
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
-/* CSS cho nút đóng */
-.close-button {
-    font-size: 24px;
-    color: #fff;
-    text-decoration: none;
-    cursor: pointer;
-}
+        .about-title {
+            font-size: 1.5rem;
+            margin-top: 0;
+        }
 
-/* CSS */
-.header-title {
-    font-size: 2rem;
-    padding: 0px;
-    position: relative;
-    color: #006eff;
-}
+        .about-description {
+            font-size: 1.2rem;
+            line-height: 1.5;
+        }
 
-.typing-text {
-    color: #000000;
-    display: inline-block;
-    overflow: hidden;
-    white-space: nowrap;
-    border-right: 2px solid transparent; /* Tạo đường viền dọc */
-    animation: typing 4s steps(25) forwards; /* Sử dụng animation */
-}
+        /* Contact Section Styles */
+        .contact {
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
-@keyframes typing {
-    0% {
-        width: 0; /* Bắt đầu từ độ rộng 0 */
-        border-right-color: transparent; /* Đường viền màu trong suốt */
-    }
-    95% {
-        width: 100%; /* Kết thúc ở độ rộng 100% */
-        border-right-color: #fff; /* Đường viền màu trắng */
-    }
-    100% {
-        width: 100%; /* Giữ nguyên kích thước 100% */
-        border-right-color: #fff; /* Đường viền màu trắng */
-    }
-}
+        .contact-title {
+            font-size: 1.5rem;
+            margin-top: 0;
+        }
 
-.icon-container {
-    margin-top: 20px;
-  }
+        .icon-container {
+            margin-top: 20px;
+        }
 
-  .icon-container a {
-    display: inline-block;
-    margin: 0 10px;
-    color: #070707;
-    text-decoration: none;
-    font-size: 24px;
-    transition: color 0.3s ease;
-  }
+        .icon-container a {
+            display: inline-block;
+            margin: 0 10px;
+            color: #070707;
+            text-decoration: none;
+            font-size: 24px;
+            transition: color 0.3s ease;
+        }
 
-  .icon-container a:hover {
-    color: #66a0f89a;
-  }
+        .icon-container a:hover {
+            color: #66a0f89a;
+        }
 
-
-
-  .texth2 {
-    font-size: 15px;
-    margin-bottom: -10px;
-    color: #6bb0ff;
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-
-  .texth1hhnios {
-    font-size: 100%;
-    margin-bottom: -10px;
-    color: #ff6b6b;
-    font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.404);
-  }
-
-  .description {
-    font-size: 18px;
-    margin-bottom: 20px;
-    color: #000000bb;
-    line-height: 1.5;
-  }
-
-  .tab-button {
+        /* Tab Styles */
+        .tab-button {
             cursor: pointer;
             background-color: #7a7a7a;
             color: #fff;
@@ -283,15 +201,39 @@
             display: none;
         }
 
+        /* Logo Styles */
         .logo {
             position: absolute;
             top: -2px;
             right: 20px;
-            width: 80px; /* Điều chỉnh kích thước theo nhu cầu của bạn */
-            height: auto; /* Để giữ tỷ lệ khung hình */
+            width: 80px;
+            height: auto;
+        }
+
+        /* Châm Ngôn Sống Styles */
+        .owl-carousel .item {
+            font-size: 1.2rem;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Additional Styles */
+        .texth2 {
+            font-size: 15px;
+            margin-bottom: -10px;
+            color: #6bb0ff;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .texth1hhnios {
+            font-size: 100%;
+            margin-bottom: -10px;
+            color: #ff6b6b;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.404);
         }
     </style>
-
 
 <style>
     :root {
@@ -373,46 +315,45 @@
     <div class="mode-toggle" onclick="toggleMode()">
         <i class="fas fa-adjust"></i>
     </div>
-    
+    <!-- Menu Icon -->
     <div class="menu-icon" style="color: #ffffffc9;" onclick="toggleMenu()">&#9776;</div>
 
-<div class="popup-menu" id="popupMenu">
-    <div class="popup-header">
-        <a href="#" class="close-button" onclick="closeMenu()">&#10006;</a>
-    </div>
-    <div class="popup-links">
-        <a href="#" onclick="scrollToSection('header')">Trang chủ.</a>
-        <a href="#" onclick="scrollToSection('about')">Giới thiệu về bản thân.</a>
-        <a href="#" onclick="scrollToSection('comment')">Ae cấp 3 nói về tính cách.</a>
-        <a href="#" onclick="scrollToSection('playlist')">Danh sách nhạc.</a>
-        <a href="#" onclick="scrollToSection('chamngon')">Châm ngôn sống.</a>
-        <a href="#" onclick="scrollToSection('contact')">Liên hệ.</a>
-    </div>
-</div>
-
-</div>
-
-<a href="https://hhnios.site">
-    <img href="https://hhnios.site" src="https://github.com/WeansHHN/me/blob/main/7F0CA0EC-2686-4ED5-BB7A-DA1E588065DA.png?raw=true" alt="Logo" class="logo">
-</a>
-
-<header id="header" class="header">
-    <div class="header-content">
-        <h2 class=""></h2>
-        <div class="header-title texth2">
-            <h2>Xin chào, tôi là</h2>
+    <!-- Popup Menu -->
+    <div class="popup-menu" id="popupMenu">
+        <div class="popup-header">
+            <a href="#" class="close-button" onclick="closeMenu()">&#10006;</a>
         </div>
-        <div class="typing-text texth1hhnios">
-            <h1>Ninh (Weans)</h1>
+        <div class="popup-links">
+            <a href="#" onclick="scrollToSection('header')">Trang chủ</a>
+            <a href="#" onclick="scrollToSection('about')">Giới thiệu về bản thân</a>
+            <a href="#" onclick="scrollToSection('comment')">Ae cấp 3 nói về tính cách</a>
+            <a href="#" onclick="scrollToSection('playlist')">Danh sách nhạc</a>
+            <a href="#" onclick="scrollToSection('chamngon')">Châm ngôn sống</a>
+            <a href="#" onclick="scrollToSection('contact')">Liên hệ</a>
         </div>
-        <div class="description">
-            Chào mừng bạn đến với Website của Ninh.
-        </div>
-
     </div>
-</header>
 
+    <!-- Logo -->
+    <a href="https://hhnios.site">
+        <img src="https://github.com/WeansHHN/me/blob/main/7F0CA0EC-2686-4ED5-BB7A-DA1E588065DA.png?raw=true" alt="Logo" class="logo">
+    </a>
 
+    <!-- Header Section -->
+    <header id="header" class="header">
+        <div class="header-content">
+            <div class="header-title texth2">
+                <h2>Xin chào, tôi là</h2>
+            </div>
+            <div class="typing-text texth1hhnios">
+                <h1>Ninh (Weans)</h1>
+            </div>
+            <div class="description">
+                Chào mừng bạn đến với Website của Ninh.
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
     <section id="about" class="about">
         <div class="about-content">
             <h2 class="about-title">Giới thiệu về bản thân</h2><br>
@@ -433,6 +374,8 @@
 <b>Nỗi sợ:</b> sợ ánh nhìn, sợ chỗ đông người, sợ đám đông, sợ sự nổi bật, sợ đại dương,...<br><br>
 <b>Yêu quý và quý trọng tất cả các thầy, các cô:33<br><br>
 YÊU THÍCH ĐẤT NƯỚC NHẬT BẢN VÀ TRONG TƯƠNG LAI TÔI SẼ ĐẾN ĐẤY.</b><br>
+
+
 </p>
 </div>
 </section>
@@ -498,28 +441,28 @@ YÊU THÍCH ĐẤT NƯỚC NHẬT BẢN VÀ TRONG TƯƠNG LAI TÔI SẼ ĐẾN �
         </section>
 
 
-    <section id="chamngon" class="about">
-        <div class="about-content">
-            <h2 class="about-title">Châm ngôn sống</h2>
-            <p class="about-description" style="margin: 5px;">
-        <div class="owl-carousel owl-theme">
-            <div class="item">Liệu chúng ta đang sống,<br> hay đơn giản chỉ là đang tồn tại?<br><br><b>-HTA-</b></div>
-            <div class="item">Ở nơi vắng vẻ,<br> là nơi chúng ta ít cô đơn nhất.<br><br><b>-Yosuga no Sora-</b></div>
-            <div class="item">Tôi không có thiên phú, nhưng tôi muốn xem xem,<br> một người bình thường mang theo ước mơ rốt cuộc có thể đi được bao xa.<br><br><b>-Sưu tầm-</b></div>
-            <div class="item">Dù thế gian này có tàn nhẫn,<br> thì anh vẫn sẽ mãi yêu em.<br><br><b>-Akuma no Ko-</b></div>
-
-            <div class="item">Sống ở đời như 1 cuộc ở trọ, với phòng trọ là thân xác. Hãy sống sao cho ý nghĩa, cho đẹp cuộc đời. Để lúc đến hạn trả phòng, chúng ta trả lại cho chủ phòng 1 cuộc đời đẹp đẽ, sạch sẽ.<br><br><b>-Trịnh Công Sơn-</b></div>
-
-
-            <div class="item">Liệu ở thế giới bên kia, mọi chuyện có ổn hơn không?<br>Cái chết có thực sự là lối thoát?<br>Hay ta phải gượng đứng dậy để đương đầu với khó khăn thêm trăm ngàn lần nữa?<br><br><b>-HTA-</b></div>
-
-            <div class="item">
-                Nếu tự s.á.t là cách duy nhất để giải quyết mọi thứ.<br>
-                Thì sinh mạng là thứ rẻ rúng nhất trên cõi đời này.<br><br><b>-HTA-</b></div>
-        </div>        
-            </p>
-        </div>
-    </section>
+        <section id="chamngon" class="about">
+            <div class="about-content">
+                <h2 class="about-title">Châm ngôn sống</h2>
+                <p class="about-description" style="margin: 5px;">
+            <div class="owl-carousel owl-theme">
+                <div class="item">Liệu chúng ta đang sống,<br> hay đơn giản chỉ là đang tồn tại?<br><br><b>-HTA-</b></div>
+                <div class="item">Ở nơi vắng vẻ,<br> là nơi chúng ta ít cô đơn nhất.<br><br><b>-Yosuga no Sora-</b></div>
+                <div class="item">Tôi không có thiên phú, nhưng tôi muốn xem xem,<br> một người bình thường mang theo ước mơ rốt cuộc có thể đi được bao xa.<br><br><b>-Sưu tầm-</b></div>
+                <div class="item">Dù thế gian này có tàn nhẫn,<br> thì anh vẫn sẽ mãi yêu em.<br><br><b>-Akuma no Ko-</b></div>
+    
+                <div class="item">Sống ở đời như 1 cuộc ở trọ, với phòng trọ là thân xác. Hãy sống sao cho ý nghĩa, cho đẹp cuộc đời. Để lúc đến hạn trả phòng, chúng ta trả lại cho chủ phòng 1 cuộc đời đẹp đẽ, sạch sẽ.<br><br><b>-Trịnh Công Sơn-</b></div>
+    
+    
+                <div class="item">Liệu ở thế giới bên kia, mọi chuyện có ổn hơn không?<br>Cái chết có thực sự là lối thoát?<br>Hay ta phải gượng đứng dậy để đương đầu với khó khăn thêm trăm ngàn lần nữa?<br><br><b>-HTA-</b></div>
+    
+                <div class="item">
+                    Nếu tự s.á.t là cách duy nhất để giải quyết mọi thứ.<br>
+                    Thì sinh mạng là thứ rẻ rúng nhất trên cõi đời này.<br><br><b>-HTA-</b></div>
+            </div>        
+                </p>
+            </div>
+        </section>
 
     <section id="contact" class="contact">
         <div class="contact-content">
@@ -537,6 +480,7 @@ YÊU THÍCH ĐẤT NƯỚC NHẬT BẢN VÀ TRONG TƯƠNG LAI TÔI SẼ ĐẾN �
 
     <div class="description">
         <center>Copyright © By HHNiOS(hhnios.site).</center>
+        <br>
     </div>
 
     <script>
