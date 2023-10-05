@@ -10,6 +10,24 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <style>
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #3f3f3f }
+        }
+        #crush-name {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ff6b6b;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 2px solid #313131;
+            animation: typing 1s steps(100) forwards, blink-caret 0.5s step-end infinite;
+        }
         /* Global Styles */
         body {
             font-family: Arial, sans-serif;
@@ -359,8 +377,8 @@
             <div class="header-title texth2">
                 <h2>Xin chào, tôi là</h2>
             </div>
-            <div class="typing-text texth1hhnios">
-                <h1>Ninh (Weans)</h1>
+            <div class=" texth1hhnios">
+                <h1><span id="crush-name"></span></h1> 
             </div>
             <div class="description">
                 Chào mừng bạn đến với Website của Ninh.
@@ -516,7 +534,22 @@ YÊU THÍCH ĐẤT NƯỚC NHẬT BẢN VÀ TRONG TƯƠNG LAI TÔI SẼ ĐẾN �
       
     
     <script>
-        // Tự động mở Tab 1 khi trang web được tải
+
+        
+        const crushName = "Ninh (Weans)";
+        let index = 0;
+        const crushNameElement = document.getElementById("crush-name");
+
+        function typeCrushName() {
+            if (index < crushName.length) {
+                crushNameElement.textContent += crushName.charAt(index);
+                index++;
+                setTimeout(typeCrushName, 200);
+            }
+        }
+
+        typeCrushName();
+
         window.onload = function() {
             openTab('tab1');
         };
