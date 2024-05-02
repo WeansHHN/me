@@ -11,10 +11,10 @@
        <key>DNSProtocol</key>
        <string>HTTPS</string>
        <key>ServerURL</key>
-	<string>https://1ggfioqk1j.cloudflare-gateway.com/dns-query</string>
+	<string></string>
 	</dict>
 	<key>PayloadDisplayName</key>
-	<string>Chặn Thu Hồi </string>
+	<string>Off AntiHost LQM</string>
 	<key>PayloadIdentifier</key>
 	<string>1111111</string>
 	<key>PayloadType</key>
@@ -47,15 +47,14 @@
 
 </array>
 <key>PayloadDescription</key>
-<string>From Sylphin with Love ♡
-- Cấu Hình DNS Có Tác Dụng Chặn Thu Hồi Chứng Chỉ 
-- Cài xong nên để khoảng 2 phút rồi mới cài app bên ngoài.
-- Nghiêm Cấm : Tắt Nguồn - Sập Nguồn - Khởi Động Lại IPHONE - Dùng VPN, chỉnh DNS qua tự động hoặc dùng cấu hình DNS nào khác
-(Muốn tắt nguồn khởi động lại thì bật chế độ máy bay rồi tắt, sau khi khởi động lại để máy chạy 2-3p rồi mới tắt máy bay.
-Muốn bật VPN thì xóa hết tất cả các app cài bên ngoài đi, dùng xong rồi thì tắt VPN để DNS tầm 5 phút rồi cài lại)
+<string>
+- DNS này có tác dụng chống ban acc 1 phần.
+- Mỗi lần muốn sử dụng thì hãy vào đến sảnh rồi bật Antiban Host LQM.
+- Vì đây là Antiban Host nên không kì vọng nhiều.
+From Sylphin and Weans.
 </string>
 <key>PayloadDisplayName</key>
-<string>Cấu Hình Chặn Thu Hồi By Sylphin</string>
+<string>Cấu Hình Antiban LQM By Sylphin and Weans</string>
 <key>PayloadIdentifier</key>
 <string>Sylphin</string>
 <key>PayloadRemovalDisallowed</key>
