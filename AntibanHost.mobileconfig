@@ -5,7 +5,7 @@
 <key>PayloadContent</key>
 <array>
 
-       <dict>
+<dict>
        <key>DNSSettings</key>
        <dict>
        <key>DNSProtocol</key>
@@ -18,12 +18,12 @@
 	<key>PayloadIdentifier</key>
 	<string>1111111</string>
 	<key>PayloadType</key>
-<string>com.apple.dnsSettings.managed</string>
+        <string>com.apple.dnsSettings.managed</string>
 	<key>PayloadUUID</key>
 	<string>1111111</string>
 	<key>PayloadVersion</key>
 	<integer>1</integer>
-       </dict>
+</dict>
 
 <dict>
        <key>DNSSettings</key>
@@ -38,12 +38,12 @@
 	<key>PayloadIdentifier</key>
 	<string>2222222</string>
 	<key>PayloadType</key>
-<string>com.apple.dnsSettings.managed</string>
+        <string>com.apple.dnsSettings.managed</string>
 	<key>PayloadUUID</key>
 	<string>2222222</string>
 	<key>PayloadVersion</key>
 	<integer>1</integer>
-       </dict>
+</dict>
 
 </array>
 <key>PayloadDescription</key>
@@ -54,7 +54,7 @@
 From Sylphin and Weans.
 </string>
 <key>PayloadDisplayName</key>
-<string>Cấu Hình Antiban LQM By Sylphin and Weans</string>
+<string>Antiban LQM By Sylphin and Weans</string>
 <key>PayloadIdentifier</key>
 <string>Sylphin</string>
 <key>PayloadRemovalDisallowed</key>
