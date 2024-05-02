@@ -50,7 +50,9 @@
 <string>
 - DNS này có tác dụng chống ban acc 1 phần.
 - Mỗi lần muốn sử dụng thì hãy vào đến sảnh rồi bật Antiban Host LQM.
+- Không hoạt động khi bật VPN.
 - Vì đây là Antiban Host nên không kì vọng nhiều.
+- Beta Test.
 From Sylphin and Weans.
 </string>
 <key>PayloadDisplayName</key>
