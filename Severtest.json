@@ -1,1 +1,4 @@
-keykey
+{
+  "url": "https://example.com/key",
+  "apiKey": "key"
+}
