@@ -1,0 +1,16 @@
+{
+  "urlString": "keykey",
+  "message": "Nhập key vào phía bên dưới.",
+  "actions": [
+    {
+      "title": "Close",
+      "type": "destructive",
+      "handler": "close"
+    },
+    {
+      "title": "Ok",
+      "type": "destructive",
+      "handler": "verify_key"
+    }
+  ]
+}
