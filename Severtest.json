@@ -1,7 +1,5 @@
 {
   "status1": "true",
   "version1": "1.0",
-  "apiKey": "MangDiBanLamCho",
-  "apiKey": "hhnios",
-  "apiKey": "weans"
+  "apiKeys": ["MangDiBanLamCho", "hhnios", "weans"]
 }
