@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kéo púa pao</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #282c34;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+
+        #battlefield {
+            position: relative;
+            width: 100%;
+            height: 80%;
+            border: 2px solid #61dafb;
+            border-radius: 10px;
+            margin-top: 20px;
+            background-color: #20232a;
+        }
+
+        .icon {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            font-size: 40px;
+            text-align: center;
+            line-height: 50px;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .icon:hover {
+            transform: scale(1.2);
+        }
+
+        .rock::before {
+            content: "🔨"; /* Icon đá */
+        }
+
+        .paper::before {
+            content: "🥅"; /* Icon giấy */
+        }
+
+        .scissors::before {
+            content: "✂️"; /* Icon kéo */
+        }
+
+        #status {
+            width: 100%;
+            text-align: center;
+            font-size: 22px;
+            margin-top: 20px;
+        }
+
+        #restartBtn {
+            padding: 10px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #61dafb;
+            color: #282c34;
+            transition: background-color 0.3s ease;
+        }
+
+        #restartBtn:hover {
+            background-color: #21a1f1;
+        }
+    </style>
+</head>
+<body>
+    <div id="battlefield"></div>
+    <div id="status">
+        🔨: <span id="rockCount">0</span> | 🥅: <span id="paperCount">0</span> | ✂️: <span id="scissorsCount">0</span>
+    </div>
+    <button id="restartBtn">Bắt đầu lại</button>
+
+    <script>
+        const battlefield = document.getElementById('battlefield');
+        const icons = ['rock', 'paper', 'scissors'];
+        let totalIcons = 60;
+        const iconCounts = { rock: 0, paper: 0, scissors: 0 };
+
+        function updateStatus() {
+            document.getElementById('rockCount').innerText = iconCounts.rock;
+            document.getElementById('paperCount').innerText = iconCounts.paper;
+            document.getElementById('scissorsCount').innerText = iconCounts.scissors;
+        }
+
+        function addIcon(type) {
+            const icon = document.createElement('div');
+            icon.className = `icon ${type}`;
+            icon.style.left = `${Math.random() * (window.innerWidth - 50)}px`;
+            icon.style.top = `${Math.random() * (window.innerHeight * 0.8 - 50)}px`;
+
+            const speedX = (Math.random() * 2 + 1) * (Math.random() < 0.5 ? 1 : -1);
+            const speedY = (Math.random() * 2 + 1) * (Math.random() < 0.5 ? 1 : -1);
+
+            iconCounts[type]++;
+            updateStatus();
+
+            battlefield.appendChild(icon);
+            moveIcon(icon, speedX, speedY);
+        }
+
+        function populateIcons() {
+            battlefield.innerHTML = '';
+            iconCounts.rock = 0;
+            iconCounts.paper = 0;
+            iconCounts.scissors = 0;
+            for (let i = 0; i < totalIcons; i++) {
+                addIcon(icons[Math.floor(Math.random() * icons.length)]);
+            }
+        }
+
+        function moveIcon(icon, speedX, speedY) {
+            const moveInterval = setInterval(() => {
+                let currentX = parseFloat(icon.style.left);
+                let currentY = parseFloat(icon.style.top);
+
+                currentX += speedX;
+                currentY += speedY;
+
+                if (currentX <= 0 || currentX >= window.innerWidth - 50) {
+                    speedX = -speedX;
+                }
+
+                if (currentY <= 0 || currentY >= window.innerHeight * 0.8 - 50) {
+                    speedY = -speedY;
+                }
+
+                icon.style.left = `${currentX}px`;
+                icon.style.top = `${currentY}px`;
+
+                checkCollision(icon);
+            }, 30);
+        }
+
+        function checkCollision(icon) {
+            const icons = document.querySelectorAll('.icon');
+            icons.forEach(otherIcon => {
+                if (icon !== otherIcon && isColliding(icon, otherIcon)) {
+                    handleCollision(icon, otherIcon);
+                }
+            });
+        }
+
+        function isColliding(icon1, icon2) {
+            const rect1 = icon1.getBoundingClientRect();
+            const rect2 = icon2.getBoundingClientRect();
+            return !(rect1.right < rect2.left || rect1.left > rect2.right ||
+                     rect1.bottom < rect2.top || rect1.top > rect2.bottom);
+        }
+
+        function handleCollision(icon1, icon2) {
+            const icon1Type = icon1.classList.contains('rock') ? 'rock' :
+                              icon1.classList.contains('paper') ? 'paper' : 'scissors';
+            const icon2Type = icon2.classList.contains('rock') ? 'rock' :
+                              icon2.classList.contains('paper') ? 'paper' : 'scissors';
+
+            if ((icon1Type === 'rock' && icon2Type === 'scissors') ||
+                (icon1Type === 'scissors' && icon2Type === 'paper') ||
+                (icon1Type === 'paper' && icon2Type === 'rock')) {
+                icon2.className = `icon ${icon1Type}`;
+                iconCounts[icon2Type]--;
+                iconCounts[icon1Type]++;
+            } else if ((icon2Type === 'rock' && icon1Type === 'scissors') ||
+                       (icon2Type === 'scissors' && icon1Type === 'paper') ||
+                       (icon2Type === 'paper' && icon1Type === 'rock')) {
+                icon1.className = `icon ${icon2Type}`;
+                iconCounts[icon1Type]--;
+                iconCounts[icon2Type]++;
+            }
+            updateStatus();
+            checkReinforcement();
+        }
+
+        function checkReinforcement() {
+            const totalIcons = iconCounts.rock + iconCounts.paper + iconCounts.scissors;
+            if (totalIcons < 60) {
+                if (iconCounts.rock < 10) {
+                    addIcon('rock');
+                }
+                if (iconCounts.paper < 10) {
+                    addIcon('paper');
+                }
+                if (iconCounts.scissors < 10) {
+                    addIcon('scissors');
+                }
+            }
+        }
+
+        document.getElementById('restartBtn').addEventListener('click', () => {
+            populateIcons();
+        });
+
+        populateIcons();
+    </script>
+</body>
+</html>
